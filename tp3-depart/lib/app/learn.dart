@@ -11,18 +11,13 @@ class Learn extends StatefulWidget {
 class _LearnState extends State<Learn> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GridView.count(
-        crossAxisCount: Hiraganas.length,
-        children: itemList
-            .map(
-              (Item) => ItemList(item: Item),
-        )
-            .toList(),
-        ),
-      ),
+    return GridView.count(
+      crossAxisCount: 2,
+      children: List.generate(2, (index) {
+        FittedBox(
+          child: Text('Card $index'),
+        );
+      }),
     );
   }
-
-  ItemList({item}) { Hiraganas.addAll(item);}
 }

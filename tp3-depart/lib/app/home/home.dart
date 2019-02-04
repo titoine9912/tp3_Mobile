@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/util/strings.dart';
+import 'package:tp3/app/learn.dart';
 
 class Home extends StatefulWidget {
 
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
 
   int _selectedIndex = 1;
   final _widgetOptions = [
-    Text('Index 0: Learn'),
+    Learn(),
     Text('Index 1: Trainning')
   ];
 
