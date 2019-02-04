@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/util/strings.dart';
 
-class Home extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _HomeState();
-  }
-}
-
-class _HomeState extends State<Home> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var strings = Strings.of(context);
