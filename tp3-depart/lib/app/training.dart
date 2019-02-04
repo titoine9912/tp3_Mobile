@@ -17,7 +17,7 @@ class _TrainingState extends State<Training> {
         children: List<Widget>.generate(Hiraganas.length, (index) {
           return GridTile(
             child: FittedBox(
-              child: Hiraganas,
+              //child: Hiraganas,
             ),
           );
         }),
