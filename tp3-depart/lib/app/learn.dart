@@ -9,38 +9,50 @@ class Learn extends StatefulWidget {
 }
 
 class _LearnState extends State<Learn> {
-  var list = Hiraganas.values.toList();
-  var index = -1;
+  var index = 0;
 
-  //List cards = List.generate(2, (index) => new customCard());
+  //List cards = List.generate(2, (index) => CustomCard(index));
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: GridView.count(
         crossAxisCount: 2,
-        children: <Widget>[
-          customCard(index++),
-        ],
+        children: List.generate(Hiraganas.length, (index)=>CustomCard(index)),
       ),
     );
   }
 }
 
-Widget customCard(int index) {
-  return Card(
-    child: Column(
-      //mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Text(
-          Hiraganas.keys.elementAt(index),
-          textScaleFactor: 6,
-        ),
-        Text(
-          Hiraganas.values.elementAt(index),
-          textScaleFactor: 1.5,
-        ),
-      ],
-    ),
-  );
+class CustomCard extends StatefulWidget {
+  final int index;
+
+  CustomCard(this.index);
+
+  @override
+  State<StatefulWidget> createState() => _CustomCardState(index);
+}
+
+class _CustomCardState extends State<CustomCard> {
+  int index;
+
+  _CustomCardState(this.index);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Text(
+            Hiraganas.keys.elementAt(index),
+            textScaleFactor: 6,
+          ),
+          Text(
+            Hiraganas.values.elementAt(index),
+            textScaleFactor: 1.5,
+          ),
+        ],
+      ),
+    );
+  }
 }
