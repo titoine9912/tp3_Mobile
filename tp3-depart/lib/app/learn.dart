@@ -18,7 +18,7 @@ class _LearnState extends State<Learn> {
     return Container(
       child: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(Hiraganas.length, (index)=>CustomCard(index)),
+        children: List.generate(Hiraganas.length, (index) => CustomCard(index)),
       ),
     );
   }
@@ -42,14 +42,29 @@ class _CustomCardState extends State<CustomCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
-            Hiraganas.keys.elementAt(index),
-            textScaleFactor: 6,
+          Container(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  Hiraganas.keys.elementAt(index),
+                  textScaleFactor: 8,
+                ),
+              ],
+            ),
           ),
-          Text(
-            Hiraganas.values.elementAt(index),
-            textScaleFactor: 1.5,
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  Hiraganas.values.elementAt(index),
+                  textScaleFactor: 1.5,
+                ),
+              ],
+            ),
           ),
         ],
       ),
