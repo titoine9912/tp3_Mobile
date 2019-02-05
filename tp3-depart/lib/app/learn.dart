@@ -42,29 +42,20 @@ class _CustomCardState extends State<CustomCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  Hiraganas.keys.elementAt(index),
-                  textScaleFactor: 8,
-                ),
-              ],
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: FittedBox(
+              child: Text(
+                Hiraganas.keys.elementAt(index),
+              ),
             ),
           ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  Hiraganas.values.elementAt(index),
-                  textScaleFactor: 1.5,
-                ),
-              ],
-            ),
+          Text(
+            Hiraganas.values.elementAt(index),
+            textAlign: TextAlign.center,
+            //textScaleFactor: 1.5,
           ),
         ],
       ),
