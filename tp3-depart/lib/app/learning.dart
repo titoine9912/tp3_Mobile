@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/app/hiragana/hiragana.dart';
 
-class Learn extends StatefulWidget {
+class Learning extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _LearnState();
+    return _LearningState();
   }
 }
 
-class _LearnState extends State<Learn> {
+class _LearningState extends State<Learning> {
   var index = 0;
 
   @override
