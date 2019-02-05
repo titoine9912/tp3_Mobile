@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/app/hiragana/hiragana.dart';
 
+const int COLUMN_COUNT = 2;
+
 class Learning extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +17,7 @@ class _LearningState extends State<Learning> {
   Widget build(BuildContext context) {
     return Container(
       child: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: COLUMN_COUNT,
         children: List.generate(Hiraganas.length, (index) => CustomCard(index)),
       ),
     );
