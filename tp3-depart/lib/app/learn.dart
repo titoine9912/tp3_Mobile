@@ -11,8 +11,6 @@ class Learn extends StatefulWidget {
 class _LearnState extends State<Learn> {
   var index = 0;
 
-  //List cards = List.generate(2, (index) => CustomCard(index));
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +53,6 @@ class _CustomCardState extends State<CustomCard> {
           Text(
             Hiraganas.values.elementAt(index),
             textAlign: TextAlign.center,
-            //textScaleFactor: 1.5,
           ),
         ],
       ),
