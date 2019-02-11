@@ -23,14 +23,16 @@ class _TrainingState extends State<Training> {
   bool _good_answer = true;
   var _hiraganas_choice_list = List.filled(3, "");
   var _picked_choice_list = List.filled(3, false);
+  var _number_of_choices = 3;
+  Color _wrong_answer_color = Colors.red;
+  Color _not_picked_color = Colors.black;
 
   @override
   Widget build(BuildContext context) {
-
-    if(_good_answer){
+    if (_good_answer) {
       initializeQuestion();
       initializePickedList();
-      _good_answer=false;
+      _good_answer = false;
     }
 
     return Column(
@@ -50,29 +52,32 @@ class _TrainingState extends State<Training> {
           ),
         ),
         FlatButton(
-          child: Text(choice1),
-          onPressed: (_picked_choice_list[0]==false?onChoice1Pressed:null),
-          disabledTextColor: (_picked_choice_list[0]==true?Colors.red:Colors.black)
-        ),
+            child: Text(choice1),
+            onPressed:
+                (_picked_choice_list[0] == false ? onChoice1Pressed : null),
+            disabledTextColor:
+                (_picked_choice_list[0] == true ? _wrong_answer_color : _not_picked_color)),
         FlatButton(
-          child: Text(choice2),
-            onPressed: (_picked_choice_list[1]==false?onChoice2Pressed:null),
-            disabledTextColor: (_picked_choice_list[1]==true?Colors.red:Colors.black)
-        ),
+            child: Text(choice2),
+            onPressed:
+                (_picked_choice_list[1] == false ? onChoice2Pressed : null),
+            disabledTextColor:
+                (_picked_choice_list[1] == true ? _wrong_answer_color : _not_picked_color)),
         FlatButton(
-          child: Text(choice3),
-            onPressed: (_picked_choice_list[2]==false?onChoice3Pressed:null),
-            disabledTextColor: (_picked_choice_list[2]==true?Colors.red:Colors.black)
-        )
+            child: Text(choice3),
+            onPressed:
+                (_picked_choice_list[2] == false ? onChoice3Pressed : null),
+            disabledTextColor:
+                (_picked_choice_list[2] == true ? _wrong_answer_color : _not_picked_color))
       ],
     );
   }
 
   onChoice1Pressed() {
     setState(() {
-      if(choice1!=Hiraganas.values.elementAt(_hiragana_index)){
-        _picked_choice_list[0]=true;
-      } else{
+      if (choice1 != Hiraganas.values.elementAt(_hiragana_index)) {
+        _picked_choice_list[0] = true;
+      } else {
         _good_answer = true;
       }
     });
@@ -80,9 +85,9 @@ class _TrainingState extends State<Training> {
 
   onChoice2Pressed() {
     setState(() {
-      if(choice2!=Hiraganas.values.elementAt(_hiragana_index)){
-        _picked_choice_list[1]=true;
-      } else{
+      if (choice2 != Hiraganas.values.elementAt(_hiragana_index)) {
+        _picked_choice_list[1] = true;
+      } else {
         _good_answer = true;
       }
     });
@@ -90,17 +95,17 @@ class _TrainingState extends State<Training> {
 
   onChoice3Pressed() {
     setState(() {
-      if(choice3!=Hiraganas.values.elementAt(_hiragana_index)){
-        _picked_choice_list[2]=true;
-      } else{
-        _good_answer=true;
+      if (choice3 != Hiraganas.values.elementAt(_hiragana_index)) {
+        _picked_choice_list[2] = true;
+      } else {
+        _good_answer = true;
       }
     });
   }
 
   initializePickedList() {
-    for(int i=0;i<3;i++){
-      _picked_choice_list[i]=false;
+    for (int i = 0; i < _number_of_choices; i++) {
+      _picked_choice_list[i] = false;
     }
   }
 
@@ -133,8 +138,8 @@ class _TrainingState extends State<Training> {
       choice2 = Hiraganas.values.elementAt(_rnd_index1);
     }
 
-    _hiraganas_choice_list[0]=choice1;
-    _hiraganas_choice_list[1]=choice2;
-    _hiraganas_choice_list[2]=choice3;
+    _hiraganas_choice_list[0] = choice1;
+    _hiraganas_choice_list[1] = choice2;
+    _hiraganas_choice_list[2] = choice3;
   }
 }

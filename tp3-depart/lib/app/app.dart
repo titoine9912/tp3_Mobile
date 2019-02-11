@@ -5,7 +5,7 @@ import 'package:tp3/util/strings.dart';
 import 'package:tp3/util/localizations.dart';
 
 class App extends StatelessWidget {
-  const App({Key key}) : super(key: key);
+  const App({Key key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
