@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tp3/app/hiragana/hiragana.dart';
 
+//BEN_CORRECTION : J'aurais aimé voir ce fichier classé dans son propre dossier.
+
 const int MAX_OPTION_INDEX = 2;
 
 class Training extends StatefulWidget {
@@ -12,6 +14,9 @@ class Training extends StatefulWidget {
 }
 
 class _TrainingState extends State<Training> {
+  //BEN_CORRECTION : Nommage ambigu.
+  //BEN_CORRECTION : Beaucoup de ces attributs auraient du être private.
+  //                 D'autres auraient du être des constantes.
   Random rnd = new Random();
   String choice1;
   String choice2;
@@ -29,6 +34,7 @@ class _TrainingState extends State<Training> {
 
   @override
   Widget build(BuildContext context) {
+    //BEN_CORRECTION : Il y a des constructeurs pour faire cela.
     if (_good_answer) {
       initializeQuestion();
       initializePickedList();
@@ -51,6 +57,7 @@ class _TrainingState extends State<Training> {
             ),
           ),
         ),
+        //BEN_CORRECTION : On peut faire des boucles pour ça. Duplication de code.
         FlatButton(
             child: Text(choice1),
             onPressed:
@@ -124,6 +131,7 @@ class _TrainingState extends State<Training> {
       _rnd_index1 = 0 + rnd.nextInt(Hiraganas.length - 1);
     }
 
+    //BEN_CORRECTION : Il y a certainement une meilleure façon de faire cela (une boucle peut être ?).
     if (_answer_index == 0) {
       choice1 = Hiraganas.values.elementAt(_hiragana_index);
       choice2 = Hiraganas.values.elementAt(_rnd_index0);

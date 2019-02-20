@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/app/hiragana/hiragana.dart';
 
+//BEN_CORRECTION : J'aurais aimé voir ce fichier classé dans son propre dossier.
+
 const int COLUMN_COUNT = 2;
 
 class Learning extends StatefulWidget {
@@ -11,7 +13,8 @@ class Learning extends StatefulWidget {
 }
 
 class _LearningState extends State<Learning> {
-  var index = 0;
+  var index = 0; //BEN_CORRECTION : Cet attribut est inutilisé. Donc, il n'y a aucun état dans "Learning" et
+                 //                 il devrait être un StatelessWidget.
 
   @override
   Widget build(BuildContext context) {
